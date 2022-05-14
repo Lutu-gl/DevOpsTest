@@ -4,15 +4,13 @@ info:
   description: Simple Test API
   version: 1.0.0
 servers:
-- url: https://virtserver.swaggerhub.com/stturluc/modell/1.0.0
-  description: SwaggerHub API Auto Mocking
 - url: http://localhost:8080
   description: On your device for now :/
 paths:
   /doc/:
     get:
       tags:
-      - Dok
+      - Doc
       summary: Endpoint to test / get Doc
       operationId: docGET
       responses:
@@ -24,7 +22,7 @@ paths:
                 type: string
                 example: Worked
                 x-content-type: text/plain
-      x-swagger-router-controller: Dok
+      x-swagger-router-controller: Doc
   /get_msg/{count}:
     get:
       tags:

@@ -1,10 +1,10 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var Dok = require('../service/DokService');
+var Doc = require('../service/DocService');
 
 module.exports.docGET = function docGET (req, res, next) {
-  Dok.docGET()
+  Doc.docGET()
     .then(function (response) {
       utils.writeJson(res, response);
     })
