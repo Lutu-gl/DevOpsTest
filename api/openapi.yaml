@@ -1,0 +1,105 @@
+openapi: 3.0.0
+info:
+  title: Test Modell
+  description: Simple Test API
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/stturluc/modell/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: http://localhost:8080
+  description: On your device for now :/
+paths:
+  /doc/:
+    get:
+      tags:
+      - Dok
+      summary: Endpoint to test / get Doc
+      operationId: docGET
+      responses:
+        "200":
+          description: Worked!
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Worked
+                x-content-type: text/plain
+      x-swagger-router-controller: Dok
+  /get_msg/{count}:
+    get:
+      tags:
+      - Func
+      summary: Sends last messages
+      operationId: get_msgCountGET
+      parameters:
+      - name: count
+        in: path
+        description: number / quantity of messages that will be returned
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Worked!
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Modell'
+                x-content-type: application/json
+        "400":
+          description: Failed!
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Failed
+                x-content-type: text/plain
+      x-swagger-router-controller: Func
+  /put_msg/:
+    post:
+      tags:
+      - Func
+      summary: Sends message to api
+      operationId: put_msgPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Modell'
+      responses:
+        "200":
+          description: Worked!
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Worked
+                x-content-type: text/plain
+        "400":
+          description: Failed!
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Failed
+                x-content-type: text/plain
+      x-swagger-router-controller: Func
+components:
+  schemas:
+    Modell:
+      type: object
+      properties:
+        name:
+          maxLength: 20
+          type: string
+          example: Luca
+        message:
+          type: string
+          example: Hallo Welt!
+      example:
+        name: Luca
+        message: Hallo Welt!
