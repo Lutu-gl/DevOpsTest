@@ -6,8 +6,9 @@ this repo is for testing new technologies and experimenting.
 - Swagger Hub / Open API
 - Bootstrap
 
-###Technologies planed:
+### Technologies planed:
 - Dev-Ops
 - CI/CD
+- Docker (maybe)
 
 by Lutu
